@@ -88,7 +88,8 @@ export default {
 			},
 			fontFamily: {
 				sans: 'var(--font-sans)',
-				mono: 'var(--font-mono)'
+				mono: 'var(--font-mono)',
+				display: 'var(--font-display)'
 			},
 			backgroundImage: {
 				'gradient-primary': 'var(--gradient-primary)',
