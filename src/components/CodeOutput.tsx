@@ -152,20 +152,26 @@ export const CodeOutput = ({ variants, isLoading }: CodeOutputProps) => {
                     </Button>
                   </div>
                 </div>
-                <div className="h-[calc(100vh-300px)] border border-border rounded-lg overflow-hidden">
+                <div className="w-full h-96 border border-border rounded-lg overflow-hidden bg-slate-900">
                   <MonacoEditor
-                    height="100%"
-                    defaultLanguage="plaintext"
+                    height="384px"
+                    defaultLanguage="javascript"
                     theme="vs-dark"
                     value={variant.code}
                     options={{
                       readOnly: true,
                       minimap: { enabled: false },
                       scrollBeyondLastLine: false,
-                      fontSize: 13,
+                      fontSize: 14,
                       lineNumbers: 'on',
                       wordWrap: 'on',
-                      automaticLayout: true
+                      automaticLayout: true,
+                      scrollbar: {
+                        vertical: 'visible',
+                        horizontal: 'visible'
+                      },
+                      renderLineHighlight: 'none',
+                      contextmenu: false
                     }}
                   />
                 </div>
@@ -216,8 +222,8 @@ export const CodeOutput = ({ variants, isLoading }: CodeOutputProps) => {
             </div>
 
             {variants.map((variant, index) => (
-              <TabsContent key={variant.id} value={index.toString()} className="h-[calc(100vh-280px)]">
-                <div className="space-y-4 h-full">
+              <TabsContent key={variant.id} value={index.toString()} className="mt-0">
+                <div className="space-y-4">
                   {/* Variant Info */}
                   <div className="flex items-center justify-between p-3 bg-muted/50 rounded-lg">
                     <div className="flex items-center gap-3">
@@ -242,24 +248,26 @@ export const CodeOutput = ({ variants, isLoading }: CodeOutputProps) => {
                   </div>
 
                   {/* Code Editor */}
-                  <div className="flex-1 border border-border rounded-lg overflow-hidden">
+                  <div className="w-full h-96 border border-border rounded-lg overflow-hidden bg-slate-900">
                     <MonacoEditor
-                      height="100%"
-                      defaultLanguage="plaintext"
+                      height="384px"
+                      defaultLanguage="javascript"
                       theme="vs-dark"
                       value={variant.code}
                       options={{
                         readOnly: true,
                         minimap: { enabled: false },
                         scrollBeyondLastLine: false,
-                        fontSize: 13,
+                        fontSize: 14,
                         lineNumbers: 'on',
                         wordWrap: 'on',
                         automaticLayout: true,
                         scrollbar: {
-                          vertical: 'auto',
-                          horizontal: 'auto'
-                        }
+                          vertical: 'visible',
+                          horizontal: 'visible'
+                        },
+                        renderLineHighlight: 'none',
+                        contextmenu: false
                       }}
                     />
                   </div>
